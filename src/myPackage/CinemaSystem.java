@@ -39,8 +39,7 @@ public class CinemaSystem implements ActionListener{
    	final String PASS = "root";
    	Statement stmt = null;
    	ResultSet rs;
-   	
-    // Constructor
+   
     public void CinemaSystemStart(){
     		
             title = new JLabel("Cinema Booking");

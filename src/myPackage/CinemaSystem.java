@@ -148,8 +148,7 @@ public class CinemaSystem implements ActionListener{
             movieList.addActionListener(this);     
             movieList.setBounds(220, 110, 120, 30);
            
-            //Show time picker
-            
+            //Show time picker          
             JLabel timeTitle = new JLabel("Time:");
             timeTitle.setFont(new Font("Helvetica", Font.PLAIN , 20));
             timeTitle.setLocation(140,150);
@@ -200,25 +199,24 @@ public class CinemaSystem implements ActionListener{
     public void ConnectToDatabase() {
     	
 		try {
-			  //STEP 1: Open a connection
+		      //STEP 1: Open a connection
 		      System.out.println("Connecting to database...");
-			  conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/cinemasystem?autoReconnect=true&useSSL=false",USER,PASS);
-			  System.out.println("Connection success");
+		      conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/cinemasystem?autoReconnect=true&useSSL=false",USER,PASS);
+		      System.out.println("Connection success");
 			
-			  //STEP 2: Execute a query
+		      //STEP 2: Execute a query
 		      System.out.println("Creating statement...");
 		      stmt = (Statement) conn.createStatement();
 		      String sql;
 		      sql = "SELECT * FROM bookedseats";
 		      rs = stmt.executeQuery(sql);
 	
-		      //STEP 3: Extract data from result set
+		     
 		      Movie movie;
-	          CinemaSeat cineSeat;	            	
-	          
+	              CinemaSeat cineSeat;	
+		      //STEP 3: Extract data from result set
 		      while(rs.next()){
-		         //Retrieve by column name
-		         
+		         //Retrieve by column name		         
 		         String num = rs.getString("SeatNumber");
 		         String title = rs.getString("MovieTitle");
 		         LocalDate date = LocalDate.parse(rs.getString("Moviedate"));	         

@@ -1,6 +1,6 @@
 # Cinema Booking System using Java8 and JDBC 
 
-Cinema System using MySQL to save Booked Seats.
+Cinema System in Java using MySQL to save Booked Seats.
 
 Program ScreenShots:
 
@@ -9,6 +9,4 @@ Program ScreenShots:
 ![](Images/cinemaBooking2.PNG)
 
 Import cinemasystem file in MySQL.
-
-Run Java program.
 

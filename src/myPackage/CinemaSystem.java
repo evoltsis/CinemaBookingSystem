@@ -39,6 +39,7 @@ public class CinemaSystem implements ActionListener{
    	final String PASS = "root";
    	Statement stmt = null;
    	ResultSet rs;
+   	boolean connectedToDatabase =true;
    
     public void CinemaSystemStart(){
     		
@@ -181,7 +182,7 @@ public class CinemaSystem implements ActionListener{
             frame.setVisible(true); //makes frame visible
             frame.addWindowListener(new WindowAdapter() {
           	  public void windowClosing(WindowEvent e) {
-          		  
+          		  if(connectedToDatabase) {
     		      try {
     		    	//STEP 6: Clean-up environment
 					rs.close();
@@ -191,6 +192,7 @@ public class CinemaSystem implements ActionListener{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
     		      } 		     
+          	  }
           	  }
           	  
           	});
@@ -229,6 +231,7 @@ public class CinemaSystem implements ActionListener{
 		      }
 	      
 		} catch(Exception e) {
+			connectedToDatabase = false;
 			System.out.println("Connection error: "+e);
 		}
 		
